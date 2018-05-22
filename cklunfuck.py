@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-#this thing parses the uber-shitty stig_viewer ckl-xml file to a readable xls
-#created by Matt Howe (matt@matthowe.org)
 #based from ckl2poam, originally created by Allyn Stott
 
 VERSION = 1.0

@@ -1,5 +1,5 @@
 ﻿#Office 2013 STIG checker
-#Version - 0.1 | Howe
+#Version - 0.2
 $outfile = ".\$env:computername-office2013.txt"
 
 

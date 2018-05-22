@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-#this thing pulls all documentable items that are open from a ckl
-#created by Matt Howe (matt@matthowe.org)
 
 VERSION = 1.0
 

@@ -1,5 +1,5 @@
 #Run script via vmware PowerCLI on syscon
-#Connects to VC at 10.6.70.4 and checks all VMs for settings from VMX Stig
+#Connects to VC at 10.x.y.z and checks all VMs for settings from VMX Stig
 #VC credentials are required for this script. 
 function check-vmhardening ($VM) {
 

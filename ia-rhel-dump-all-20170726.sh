@@ -1,5 +1,4 @@
 #!/bin/bash
-#matt howe
 #rhel stig rpmdb dumps
 
 #GW
