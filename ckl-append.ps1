@@ -2,38 +2,34 @@ param([String]$SourceChecklist,[String]$DestinationChecklist);
 
 Write-Host ""
 
-if ([String]::IsNullOrEmpty($SourceChecklist))
-{
-        write-host -ForegroundColor Red "Source checklist must be specified";
-        write-host -ForegroundColor Red "Exiting Script";
-        exit 1;
+if ([String]::IsNullOrEmpty($SourceChecklist)) {
+	write-host -ForegroundColor Red "Source checklist must be specified";
+	write-host -ForegroundColor Red "Exiting Script";
+	exit 1;
 }
 
-if ([String]::IsNullOrEmpty($DestinationChecklist))
-{
-        write-host -ForegroundColor Red "Destination checklist must be specified";
-        write-host -ForegroundColor Red "Exiting Script";
-        exit 1;
+if ([String]::IsNullOrEmpty($DestinationChecklist)) {
+	write-host -ForegroundColor Red "Destination checklist must be specified";
+	write-host -ForegroundColor Red "Exiting Script";
+	exit 1;
 }
 
-If (Test-Path $SourceChecklist)
-{
-		Write-Host "Found source checklist."
-		Write-Host ""
-}Else{
-        write-host -ForegroundColor Red "Source checklist must be specified";
-        write-host -ForegroundColor Red "Exiting Script";
-        exit 1;
+if (Test-Path $SourceChecklist) {
+	Write-Host "Found source checklist."
+	Write-Host ""
+} else {
+	write-host -ForegroundColor Red "Source checklist must be specified";
+	write-host -ForegroundColor Red "Exiting Script";
+	exit 1;
 }
 
-If (Test-Path $DestinationChecklist)
-{
-		Write-Host "Found destination checklist."
-		Write-Host ""
-}Else{
-        write-host -ForegroundColor Red "Destination checklist must be specified";
-        write-host -ForegroundColor Red "Exiting Script";
-        exit 1;
+if (Test-Path $DestinationChecklist) {
+	Write-Host "Found destination checklist."
+	Write-Host ""
+} else {
+	write-host -ForegroundColor Red "Destination checklist must be specified";
+	write-host -ForegroundColor Red "Exiting Script";
+	exit 1;
 }
 
 Write-Host "Content of source checklist being transferred."
@@ -47,36 +43,29 @@ $DestinationSTIGChecklistData.Load($DestinationChecklist)
 [System.Xml.XmlElement] $srcchecklist = $SourceSTIGChecklistData.CHECKLIST
 [System.Xml.XmlElement] $destchecklist = $DestinationSTIGChecklistData.CHECKLIST
 
-foreach($vuln in $srcchecklist.STIGS.iSTIG.ChildNodes)
-{
-	foreach($stigdata in $vuln.ChildNodes)
-	{   
-		If ($stigdata.VULN_ATTRIBUTE -eq "Vuln_Num")
-		{
+foreach($vuln in $srcchecklist.STIGS.iSTIG.ChildNodes) {
+	foreach($stigdata in $vuln.ChildNodes) {   
+		if ($stigdata.VULN_ATTRIBUTE -eq "Vuln_Num") {
 			[string] $vulnid = $stigdata.ATTRIBUTE_DATA
 		}
 	}
 	
-	[string] $status = $vuln.STATUS
+	[string] $status = $vuln.STATUS	
 	[string] $findingdetails = $vuln.FINDING_DETAILS
 	[string] $comments = $vuln.COMMENTS
 	[string] $severityoverride = $vuln.SEVERITY_OVERRIDE
 	[string] $severityjustification = $vuln.SEVERITY_JUSTIFICATION
 	
-	foreach($destvuln in $destchecklist.STIGS.iSTIG.ChildNodes)
-	{
-		foreach($deststigdata in $destvuln.ChildNodes)
-		{   
-			If ($deststigdata.VULN_ATTRIBUTE -eq "Vuln_Num")
-			{
-				If ($deststigdata.ATTRIBUTE_DATA -eq $vulnid)
-				{
+	foreach($destvuln in $destchecklist.STIGS.iSTIG.ChildNodes) {
+		foreach($deststigdata in $destvuln.ChildNodes) {   
+			if ($deststigdata.VULN_ATTRIBUTE -eq "Vuln_Num") {
+				if ($deststigdata.ATTRIBUTE_DATA -eq $vulnid) {
 					#$destvuln.STATUS = $status
 					#$destvuln.FINDING_DETAILS = $findingdetails
 					#$destvuln.COMMENTS = $comments
 					#$destvuln.SEVERITY_OVERRIDE = $severityoverride
 					#$destvuln.SEVERITY_JUSTIFICATION = $severityjustification
-          $destvuln.COMMENTS = $destvuln.COMMENTS + $comments
+					$destvuln.COMMENTS = $destvuln.COMMENTS + $comments
 					Write-Host "ID = $vulnid STATUS = $status"
 				}
 			}
