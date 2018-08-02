@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #based from ckl2poam, originally created by Allyn Stott
 
-VERSION = 1.0
+VERSION = 0.2
 
 import sys
 from xml.dom.minidom import parseString, Node
@@ -9,7 +9,7 @@ from openpyxl import Workbook
 
 # show help
 if len(sys.argv) < 3:
-    print 'cklunfuck version', VERSION
+    print 'ckluf version', VERSION
     print 'Usage:', sys.argv[0], 'input.ckl output.xls'
     sys.exit(1)
 
