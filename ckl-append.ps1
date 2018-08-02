@@ -60,6 +60,8 @@ foreach($vuln in $srcchecklist.STIGS.iSTIG.ChildNodes) {
 		foreach($deststigdata in $destvuln.ChildNodes) {   
 			if ($deststigdata.VULN_ATTRIBUTE -eq "Vuln_Num") {
 				if ($deststigdata.ATTRIBUTE_DATA -eq $vulnid) {
+					#uncomment as needed... for this exercise, i just need comments to append.
+					#also, sv 2.x added the vast majority of this functionality (save for appending)
 					#$destvuln.STATUS = $status
 					#$destvuln.FINDING_DETAILS = $findingdetails
 					#$destvuln.COMMENTS = $comments
