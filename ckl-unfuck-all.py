@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#again, from allyn scott... modded for multiple files
+#gets nested and ugly quick (ckls are gross)
 
 VERSION = 0.3
 
@@ -8,7 +10,7 @@ from openpyxl import Workbook
 
 # show help
 if len(sys.argv) < 3:
-    print 'cklunfuck version', VERSION
+    print 'cklufa version', VERSION
     print 'Usage:', sys.argv[0], 'C:\\input\\folder output.xls'
     sys.exit(1)
 
@@ -62,6 +64,7 @@ for root, subFolders, files in os.walk(sys.argv[1]):
                 		else:
                 			ruleId = ''
 
+#TODO
 #fuck you, multi ccis   if vuln.getElementsByTagName('ATTRIBUTE_DATA')[23].hasChildNodes():
 #                			cciRef = vuln.getElementsByTagName('ATTRIBUTE_DATA')[23].firstChild.data
 #                		else:
@@ -82,7 +85,7 @@ for root, subFolders, files in os.walk(sys.argv[1]):
                 		else:
                 			comments = ''
 
-#                		sheetVals = [file,vulnId,status,cat,ruleId,cciRef,ruleTitle,vulnDiscuss,comments]
+#TODO-fix CCIs     		sheetVals = [file,vulnId,status,cat,ruleId,cciRef,ruleTitle,vulnDiscuss,comments]
                 		sheetVals = [file,vulnId,status,cat,ruleId,ruleTitle,vulnDiscuss,comments]
                 		for i in range(0, 8):
                 			ws1.cell(row = rowCounter, column = i+1).value = sheetVals[i]
