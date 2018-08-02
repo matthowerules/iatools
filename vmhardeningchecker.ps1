@@ -1,6 +1,6 @@
 #Run script via vmware PowerCLI on syscon
-#Connects to VC at 10.x.y.z and checks all VMs for settings from VMX Stig
-#VC credentials are required for this script. 
+#Connects to VC at w.x.y.z and checks all VMs for settings from VMX Stig
+#VCenter credentials are required for this script. 
 function check-vmhardening ($VM) {
 
 	$outputfile=$global:scripthome+"\"+$VM.name+"-settings.txt"
@@ -115,7 +115,7 @@ $global:scripthome= split-path -parent $myinvocation.mycommand.path
 
 Set-PowerCLIConfiguration -invalidcertificateaction ignore -scope session -confirm:$false
 if ($global:DefaultVIServers.Count -gt 1) { disconnect-viserver -server * -confirm:$false -force -ea silentlycontinue}
-connect-viserver 10.6.70.4
+connect-viserver w.x.y.z
 
 
 $VMs=get-vm
