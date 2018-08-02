@@ -12,8 +12,8 @@ done
 
 #can combine with above
 for i in vm1 vm2 vm3 vm4 vm5 ;
-    do scp -r /tmp/manual-rhel6.sh $i:/tmp/ &&
-    ssh $i 'sudo bash /tmp/manual-rhel6-new.sh' &&
+    do scp -r /tmp/man-rhel-v3ip.sh $i:/tmp/ &&
+    ssh $i 'sudo bash /tmp/man-rhel-v3ip.sh' &&
     ssh $i 'sudo chmod 750 /tmp/manual-results' &&
     scp -r $i:/tmp/manual-results /tmp/manual-results-$i ;
 done
