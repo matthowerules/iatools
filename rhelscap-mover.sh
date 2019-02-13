@@ -1,6 +1,6 @@
 #!/bin/bash
 user=`whoami`
-###TODO - group=`id -G`
+###TODO - group=`id -gn`
 for i in vm1 vm2 vm3 vm4 vm5 ;
     do scp -r /tmp/U_RedHat_6_V1R15_STIG_SCAP_1-1_Benchmark.zip $i:/tmp/ &&
     ssh $i 'sudo rm -rf ~/SCC/Results/SCAP/' &&
