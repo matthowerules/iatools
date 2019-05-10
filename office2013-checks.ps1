@@ -2177,36 +2177,27 @@ echo " " >> $outfile
 
 echo "fin!" >> $outfile
 
-
 #!======================================================
-#;!======================================================
-#;!===================== EXCEPTIONS =====================
-#;!======================================================
-#;!======================================================
 
 #;V-26589 - Word
-#;! OPEN - Word Add-on, verifies required for product data (STIG - 1)
 #User
 #Software\Policies\Microsoft\Office\15.0\word\security
 #RequireAddinSig
 #DWORD:0
 
 #;V-26589 - Powerpoint
-#;! OPEN - POA&M - Viper Add-on for PPT (STIG - 1)
 #User
 #Software\Policies\Microsoft\Office\15.0\PowerPoint\security
 #RequireAddinSig
 #DWORD:0
 
 #;V-17545 - Powerpoint
-#;! OPEN - POA&M - Baseball Card Export from MFWS to EXCEL (STIG - 2)
 #User
 #Software\Policies\Microsoft\Office\15.0\PowerPoint\security
 #VBAWarnings
 #DWORD:3
 
 #;V-26613 - Excel
-#;! OPEN - POA&M - Viper Add-On for MFWS (STIG - 2)
 #User
 #Software\Policies\Microsoft\Office\15.0\excel\security\fileblock
 #HtmlandXmlssFiles
@@ -2217,5 +2208,3 @@ echo "fin!" >> $outfile
 #;!Software\Policies\Microsoft\Office\15.0\outlook\security
 #;!trustedaddins
 #;!DELETE
-
-#;! fin
