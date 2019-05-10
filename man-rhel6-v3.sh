@@ -1,10 +1,10 @@
 #!/bin/bash
 #Add output to an associative array, store array, then eventually output to XCCDF
 
-echo "RHEL vulns" #>> /tmp/ia/output.txt1
-hostname #>> /tmp/ia/output.txt1
+echo "RHEL vulns" #>> /tmp/ia/output.txt
+hostname #>> /tmp/ia/output.txt
 cat /etc/sysconfig/network-scripts/ifcfg-eth0 | grep IPADDR | sed 's/^\(IPADDR=\)\1*//' #>> /tmp/ia/output.txt1
-#getenforce #>> /tmp/ia/output.txt1
+#getenforce #>> /tmp/ia/output.txt
 
 #example
 #results = ( RHEL-06-000008, SV-50276r3_rule, V-38476, $status, $output )
@@ -26,10 +26,10 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 #002 - RHEL-06-000284 SV-50467r2_rule V-38666
 output=`[ -f /opt/NAI/LinuxShield/engine/dat/avvscan.dat ] && ls /opt/NAI/LinuxShield/engine/dat`
 #echo $output
-if [ ! -e $output ] ; then
+if [[ ! -z $output ]] ; then
     status="NotAFinding"
 else
-    output="HBSS/AESS and the accompanying defintions do not exist"
+    output="HBSS/AESS and the accompanying definitions do not exist"
     status="Open"
 fi
 results=("RHEL-06-000284" "SV-50467r2_rule" "V-38666" "$status" "$output")
@@ -261,7 +261,7 @@ if [[ $output = *ldap* ]] ; then
 		status="NotAFinding" 
 	fi
 else
-	status="NotApplicable??????????????????????????????????????????????"
+	status="NotApplicable"
 fi
 results=("RHEL-06-000252" "SV-50426r1_rule" "V-38625" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
@@ -272,9 +272,9 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 #"RHEL-06-000270" "SV-50455r2_rule" "V-38654"
 output=`mount | grep nfs`
 if [ -z $output ; then 
-	status="NotAFinding??????????????????????????????????????????????"
+	status="NotAFinding"
 else
-	status="Open???????????????????????????????????????????" 
+	status="Open" 
 fi
 results=("RHEL-06-000269" "SV-50453r2_rule" "V-38652" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
@@ -283,7 +283,7 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 
 #"RHEL-06-000274" "SV-50459r1_rule" "V-38658"
 output=`grep remember /etc/pam.d/system-auth`
-if [[ $output = *24* ]] ; then
+if [[ $output = *5* ]] ; then
 	status="NotAFinding" 
 else
 	status="Open"
@@ -314,14 +314,14 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 
 #"RHEL-06-000285" "SV-50468r2_rule" "V-38667"
 output=`chkconfig --list | grep -i nails`
-if [ -z $output] ; then
+if [[ -z $output ]] ; then
 	status="Open"
 else
 	output=`service nails status`
-	if [[ $output = *running???????????????????????????????????????????* ]] ; then
+	if [[ $output = *running* ]] ; then
 		status="NotAFinding"
 	else
-		status="Off???????????????????????????????????"
+		status="Off"
 	fi
 fi
 results=("RHEL-06-000285" "SV-50468r2_rule" "V-38667" "$status" "$output")
@@ -335,11 +335,12 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 #"RHEL-06-000306" "SV-50471r2_rule" "V-38670"
 #"RHEL-06-000307" "SV-50474r2_rule" "V-38673"
 output=`grep -ri aide /etc/crontab /etc/cron.*/*`  #could use some work... fuck it, whatever.
-if [ ! -z $output ] ; then
+if [[ ! -z $output ]] ; then
 	status="NotAFinding" 
+	output=""
 else
 	status="Open"
-	output="Output for #grep -ri aide /etc/crontab /etc/cron.*/* - $ouput "
+	output="Run #grep -ri aide /etc/crontab /etc/cron.*/* for details"
 fi
 results=("RHEL-06-000302" "SV-50496r2_rule" "V-38695" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
@@ -365,7 +366,7 @@ results=("RHEL-06-000311" "SV-50479r2_rule" "V-38678" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
 #"RHEL-06-000315" "SV-50483r3_rule" "V-38682"
-output=`grep -r /etc/modprobe.d`
+output=`grep -r bluetooth /etc/modprobe.d`
 if [[ $output = *disable* ]] ; then
 	status="NotAFinding" 
 else
@@ -377,7 +378,7 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 #"RHEL-06-000320" "SV-50487r1_rule" "V-38686"
 output=`grep ":FORWARD" /etc/sysconfig/iptables`
 if [[ $output = *DROP* ]] ; then
-	status="NotAFinding?????????????????????????????????????????????????????????????" 
+	status="NotAFinding" 
 else
 	status="Open"
 fi
@@ -563,7 +564,8 @@ results=("RHEL-06-000273" "SV-50458r2_rule" "V-38657" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
 
-
+status="Not Applicable"
+output=""
 results=("RHEL-06-000275" "SV-50460r1_rule" "V-38659 - DISK PART ENCRYPTION" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 results=("RHEL-06-000276" "SV-50462r1_rule" "V-38661 - DISK PART ENCRYPTION" "$status" "$output")
@@ -602,7 +604,7 @@ if [[ $(grep pam_cracklib /etc/pam.d/system-auth) = *3* ]] ; then
 else
 	status="Open"
 fi
-results=("RHEL-06-000299  Rule ID: SV-50494r2_rule  Vuln ID: V-38693" "$status" "$output")
+results=("RHEL-06-000299" "SV-50494r2_rule" "V-38693" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
 
