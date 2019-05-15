@@ -543,7 +543,7 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 
 
 output=$(for i in `find / -xdev -type f -perm /6000 2>/dev/null`; do if [[ $(cat /etc/audit/audit.rules | grep "path=$i") ]]; then : ; else echo $i "is not compliant"; fi; done` 
-if [[  -z $output ]] ; then 
+if [ -z $output ] ; then 
 	status="NotAFinding" 
 else
 	status="Open"
@@ -551,7 +551,7 @@ fi
 results=("RHEL-06-000198" "SV-50368r4_rule" "V-38567" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
-
+output=""
 if [[ $(grep noexec /etc/fstab) = 1 ]] ; then
 	status="NotAFinding" 
 else
