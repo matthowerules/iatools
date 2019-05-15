@@ -271,10 +271,10 @@ echo ${results[*]} #>> /tmp/ia/output.txt
 #"RHEL-06-000269" "SV-50453r2_rule" "V-38652"
 #"RHEL-06-000270" "SV-50455r2_rule" "V-38654"
 output=`mount | grep nfs`
-if [ -z $output ; then 
+if [[ -z $output ]] ; then 
 	status="NotAFinding"
 else
-	status="Open" 
+	status="Open"
 fi
 results=("RHEL-06-000269" "SV-50453r2_rule" "V-38652" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
