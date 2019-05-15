@@ -291,6 +291,7 @@ fi
 results=("RHEL-06-000274" "SV-50459r1_rule" "V-38658" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
+output=`for i in $(rpm -V audit | grep '.^M' | awk '{print $3}'); do if [ $(stat -c '%a' $i) -lt $(rpm -q --queryformat "[%{FILENAMES} %{FILEMODES:octal}\n]" audit | grep $i | awk '{print $2}' | sed 's/...//') ] ; then : ; else echo "open" ; fi ; done`
 
 #echo "******STIG ID: RHEL-06-000278  Rule ID: SV-50464r1_rule  Vuln ID: V-38663" 
 #rpm -V audit | grep '^.M' 
