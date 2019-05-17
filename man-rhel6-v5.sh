@@ -137,6 +137,19 @@ fi
 results=("RHEL-06-000046" "SV-50266r4_rule" "V-38466" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
+#00x - "RHEL-06-000136" "SV-50321r1_rule" "V-38520"
+#00x - "RHEL-06-000137" "SV-50322r1_rule" "V-38521"
+output=`cat /etc/rsyslog.conf | grep "*.* @@"`
+if [[ ! -z $output ]] ; then
+        status="NotAFinding"
+else
+        status="Open"
+        output="Log forwarding not set"
+fi
+results=("RHEL-06-000136" "SV-50321r1_rule" "V-38520" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
+results=("RHEL-06-000137" "SV-50322r1_rule" "V-38521" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
 
 #010 - "RHEL-06-000073" "SV-50394r1_rule" "V-38593"
 output=`cat /etc/issue | cut -c -80`
