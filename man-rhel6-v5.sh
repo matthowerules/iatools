@@ -126,6 +126,18 @@ fi
 results=("RHEL-06-000045" "SV-50265r3_rule" "V-38465" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
+#00x - "RHEL-06-000046" "SV-50266r4_rule" "V-38466"
+if [[ $(find -L {/lib,/lib64,/usr/lib,/usr/lib64} \! -user root) = 1 ]] ; then
+        status="Open"
+        output=`find -L {/lib,/lib64,/usr/lib,/usr/lib64} \! -user root 2>&1`
+else
+        status="NotAFinding"
+        output="No results for query #find -L {/lib,/lib64,/usr/lib,/usr/lib64} \! -user root"
+fi
+results=("RHEL-06-000046" "SV-50266r4_rule" "V-38466" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
+
+
 #010 - "RHEL-06-000073" "SV-50394r1_rule" "V-38593"
 output=`cat /etc/issue | cut -c -80`
 if [[ ! -z $output ]] ; then
@@ -386,7 +398,15 @@ fi
 results=("RHEL-06-000320" "SV-50487r1_rule" "V-38686" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
-
+#"RHEL-06-000120" "SV-50314r2_rule" "V-38513"
+output=`iptables -nvL | grep -i input | grep -i drop`
+if [[ ! -z $output ]] ; then
+	status="NotAFinding" 
+else
+	status="Open"
+fi
+results=("RHEL-06-000120" "SV-50314r2_rule" "V-38513" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
 
 #echo "******GCONF2" 
 #results=("RHEL-06-000326" "SV-50490r3_rule" "V-38689" "$status" "$output")
