@@ -316,17 +316,65 @@ fi
 results=("RHEL-06-000274" "SV-50459r1_rule" "V-38658" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
 
+#"RHEL-06-000281" "SV-50438r2_rule" "V-38637"
+output=`rpm -V audit | awk '$1 ~ /..5/ && $2 != "c"'`
+if [[ -z $output ]] ; then
+	status="NotAFinding" 
+else
+	status="Open"
+fi
+results=("RHEL-06-000281" "SV-50438r2_rule" "V-38637" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
+
+#"RHEL-06-000278" "SV-50464r1_rule" "V-38663"
 output=`for i in $(rpm -V audit | grep '.^M' | awk '{print $3}'); do if [ $(stat -c '%a' $i) -lt $(rpm -q --queryformat "[%{FILENAMES} %{FILEMODES:octal}\n]" audit | grep $i | awk '{print $2}' | sed 's/...//') ] ; then : ; else echo "open" ; fi ; done`
+if [[ -z $output ]] ; then
+	status="NotAFinding" 
+else
+	status="Open"
+fi
+results=("RHEL-06-000278" "SV-50464r1_rule" "V-38663" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
 
-#echo "******STIG ID: RHEL-06-000278  Rule ID: SV-50464r1_rule  Vuln ID: V-38663" 
-#rpm -V audit | grep '^.M' 
-#echo "******STIG ID: RHEL-06-000279  Rule ID: SV-50465r1_rule  Vuln ID: V-38664" 
-#rpm -V audit | grep '^.....U' 
-#echo "******STIG ID: RHEL-06-000280  Rule ID: SV-50466r1_rule  Vuln ID: V-38665" 
-#rpm -V audit | grep '^......G' 
-#echo "******STIG ID: RHEL-06-000281  Rule ID: SV-50438r2_rule  Vuln ID: V-38637" 
-#rpm -V audit | awk '$1 ~ /..5/ && $2 != "c"' 
+#"RHEL-06-000279" "SV-50465r1_rule" "V-38664"
+output=`rpm -V audit | grep '^.....U'`
+if [[ -z $output ]] ; then
+	status="NotAFinding" 
+else
+	status="Open"
+fi
+results=("RHEL-06-000279" "SV-50465r1_rule" "V-38664" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
 
+#"RHEL-06-000280" "SV-50466r1_rule" "V-38665"
+output=`rpm -V audit | grep '^......G'`
+if [[ -z $output ]] ; then
+	status="NotAFinding" 
+else
+	status="Open"
+fi
+results=("RHEL-06-000280" "SV-50466r1_rule" "V-38665" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
+
+#"RHEL-06-000336" "SV-50498r2_rule" "V-38697"
+output=`find / -xdev -type d -perm 002 \! -perm -1000`
+if [[ ! -z $output ]] ; then 
+	status="Open"
+else
+	status="NotAFinding"
+fi
+results=("RHEL-06-000336" "SV-50498r2_rule" "V-38697" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
+
+#"RHEL-06-000337" "SV-50500r2_rule" "V-38699"
+output=`find / -xdev -type d -perm 0002 -uid +499 -print`
+if [[ ! -z $output ]] ; then 
+	status="Open"
+else
+	status="NotAFinding"
+fi
+results=("RHEL-06-000337" "SV-50500r2_rule" "V-38699" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
 
 #"RHEL-06-000282" "SV-50444r3_rule" "V-38643"
 output=`find -xdev -type f -perm -002`
@@ -352,7 +400,8 @@ else
 fi
 results=("RHEL-06-000285" "SV-50468r2_rule" "V-38667" "$status" "$output")
 echo ${results[*]} #>> /tmp/ia/output.txt
-
+results=("RHEL-06-000533" "SV-96157r1_rule" "V-81443" "$status" "$output")
+echo ${results[*]} #>> /tmp/ia/output.txt
 
 #"RHEL-06-000302" "SV-50496r2_rule" "V-38695"
 #"RHEL-06-000303" "SV-50497r2_rule" "V-38696"
