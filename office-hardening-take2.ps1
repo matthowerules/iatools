@@ -13,6 +13,29 @@ $SetArrayU=@()
 #$SetArrayM=@()
 
 #HKU
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,NoTBPromptUnsignedAddin,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security\trusted locations,AllLocationsDisabled,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,GradualUpgradeRedirection,REG_DWORD,2"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EmailFormsRunCodeAndScript,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EmailFormsBeaconingUI,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,CacheMailXSN,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EnableFullTrustEmailForms,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EnableInternetEmailForms,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EnableRestrictedEmailForms,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,RunFullTrustSolutions,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,AllowInternetSolutions,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,MailXSNwithXML,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,DisableInfoPath2003EmailForms,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,InfoPathBeaconingUI,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EnableActiveXBeaconingUI,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,CachedModeStatus,REG_DWORD,2"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,DisallowAttachmentCustomization,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,RequireAddinSig,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,EnableIntranetEmailForms,REG_DWORD,0"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,DisableInfoPathForms,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,RunManagedCodeFromInternet,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,SignatureWarning,REG_DWORD,1"
+$SetArrayU += "Software\Policies\Microsoft\Office\15.0\InfoPath\security,APTCA_AllowList,REG_DWORD,1"
 $SetArrayU += "Software\Policies\Microsoft\Office\15.0\common\mailsettings,PlainWrapLen,REG_DWORD,132"
 $SetArrayU += "Software\Policies\Microsoft\Office\15.0\access\security,NoTBPromptUnsignedAddin,REG_DWORD,1"
 $SetArrayU += "Software\Policies\Microsoft\Office\15.0\excel\security,NoTBPromptUnsignedAddin,REG_DWORD,1"
@@ -276,6 +299,7 @@ foreach ($sid in $Sids) {
 
   New-ItemProperty -Path "HKU:\$sid\Software\Policies\Microsoft\Office\15.0\common\security" -Name DefaultEncryption12 -PropertyType "String" -Value "Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256" -Force | Out-Null
   New-ItemProperty -Path "HKU:\$sid\Software\Policies\Microsoft\Office\15.0\common\security" -Name OpenXMLEncryption -PropertyType "String" -Value "Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256" -Force | Out-Null
+  New-ItemProperty -Path "HKU:\$sid\Software\Policies\Microsoft\Office\15.0\InfoPath\security" -Name OpenXMLEncryption -PropertyType "String" -Value "Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256" -Force | Out-Null
 
   foreach($setting in $SetArrayU) {
     $regset = "HKU\" + $sid + "\" + $setting.split(",")[0]
