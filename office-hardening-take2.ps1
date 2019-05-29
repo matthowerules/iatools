@@ -1,5 +1,5 @@
 #Office STIG hardening
-#version 05
+#version 06
 
 #TODO: NEED TO CROSS CHECK ALL HKU KEYS WITH EVERY NTUSER.DAT, THEN ADD:
 # reg load HKU\missinguser c:\users\missinguser\ntuser.dat
