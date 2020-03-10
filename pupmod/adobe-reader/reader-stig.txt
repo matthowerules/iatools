@@ -1,0 +1,20 @@
+;READER
+
+;V-65673
+User
+Software\Adobe\Acrobat Reader\DC\Security\cDigSig\cEUTLDownload
+bLoadSettingsFromURL 
+DWORD:0
+
+;V-65675
+User
+Software\Adobe\Acrobat Reader\DC\Security\cDigSig\cAdobeDownload
+bLoadSettingsFromURL 
+DWORD:0
+
+;V-65679
+User
+Software\Adobe\Acrobat Reader\DC\AVGeneral
+bFIPSMode 
+DWORD:1
+
