@@ -1,0 +1,19 @@
+;ACROBAT
+;V-79375
+User
+Software\Adobe\Adobe Acrobat\DC\AVGeneral
+bFIPSMode
+DWORD:1
+
+;V-79377
+User
+Software\Adobe\Adobe Acrobat\DC\Security\cDigSig\cEUTLDownload
+bLoadSettingsFromURL
+DWORD:0
+
+;V-79401
+User
+Software\Adobe\Adobe Acrobat\DC\Security\cDigSig\cAdobeDownload
+bLoadSettingsFromURL
+DWORD:0
+
