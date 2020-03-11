@@ -10,10 +10,6 @@ class adobereader {
     ensure   =>latest,
     provider =>chocolatey,
   }
-  package{'AdobeReaderX':
-    ensure   =>absent,
-    provider =>chocolatey,
-  }
 
   registry_value{[
     'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run\Adobe Reader Speed Launcher',
