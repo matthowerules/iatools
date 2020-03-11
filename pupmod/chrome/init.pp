@@ -17,8 +17,8 @@ class chrome {
         'AllowOutdatedPlugins'=>0,
         'BlockThirdPartyCookies'=>1,
         'BackgroundModeEnabled'=>0,
-        # Enabling 3D APIs for Maven Smart System, which requires WebGL APIs
-        #'Disable3DAPIs'=>1,
+        # Causes issues with WebGL APIs if they are needed by external webapps
+        'Disable3DAPIs'=>1,
         'Disable3DAPIs'=>0,
         'SyncDisabled'=>1,
         'CloudPrintProxyEnabled'=>0,
