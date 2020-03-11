@@ -1,11 +1,6 @@
 class adobepro {
   include adobepro::acrgpo
 
-  package{'AdobePro11':
-    ensure   =>absent,
-    provider =>chocolatey,
-  }
-
   package{'AdobePro':
     ensure   =>latest,
     provider =>chocolatey,
