@@ -1,0 +1,260 @@
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image add alpine:latest
+Image Digest: sha256:a15790640a6690aa1730c38cf0a440e2aa44aaca9b0e8931a9f2b0d7cc90fd65
+Parent Digest: sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
+Analysis Status: not_analyzed
+Image Type: docker
+Analyzed At: None
+Image ID: a24bb4013296f61e89ba57005a7b3e52274d8edd3ae2077d04395f806b63d83e
+Dockerfile Mode: None
+Distro: None
+Distro Version: None
+Size: None
+Architecture: None
+Layer Count: None
+
+Full Tag: docker.io/alpine:latest
+Tag Detected At: 2020-09-21T14:33:08Z
+
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image add ubuntu:latest
+Image Digest: sha256:028d7303257c7f36c721b40099bf5004a41f666a54c0896d5f229f1c0fd99993
+Parent Digest: sha256:cbcf86d7781dbb3a6aa2bcea25403f6b0b443e20b9959165cf52d2cc9608e4b9
+Analysis Status: not_analyzed
+Image Type: docker
+Analyzed At: None
+Image ID: bb0eaf4eee00c28cb8ffd54e571dd225f1dd2ed8d8751b2835c31e84188bf2de
+Dockerfile Mode: None
+Distro: None
+Distro Version: None
+Size: None
+Architecture: None
+Layer Count: None
+
+Full Tag: docker.io/ubuntu:latest
+Tag Detected At: 2020-09-21T14:33:27Z
+
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image add centos:latest
+Image Digest: sha256:fc4a234b91cc4b542bac8a6ad23b2ddcee60ae68fc4dbd4a52efb5f1b0baad71
+Parent Digest: sha256:76d24f3ba3317fa945743bb3746fbaf3a0b752f10b10376960de01da70685fbd
+Analysis Status: not_analyzed
+Image Type: docker
+Analyzed At: None
+Image ID: 0d120b6ccaa8c5e149176798b3501d4dd1885f961922497cd0abef155c869566
+Dockerfile Mode: None
+Distro: None
+Distro Version: None
+Size: None
+Architecture: None
+Layer Count: None
+
+Full Tag: docker.io/centos:latest
+Tag Detected At: 2020-09-21T14:33:34Z
+
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image list
+Full Tag                       Image Digest                                                                   Analysis Status        
+docker.io/alpine:latest        sha256:a15790640a6690aa1730c38cf0a440e2aa44aaca9b0e8931a9f2b0d7cc90fd65        analyzed               
+docker.io/centos:latest        sha256:fc4a234b91cc4b542bac8a6ad23b2ddcee60ae68fc4dbd4a52efb5f1b0baad71        not_analyzed           
+docker.io/ubuntu:latest        sha256:028d7303257c7f36c721b40099bf5004a41f666a54c0896d5f229f1c0fd99993        analyzed               
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image list
+Full Tag                       Image Digest                                                                   Analysis Status        
+docker.io/alpine:latest        sha256:a15790640a6690aa1730c38cf0a440e2aa44aaca9b0e8931a9f2b0d7cc90fd65        analyzed               
+docker.io/centos:latest        sha256:fc4a234b91cc4b542bac8a6ad23b2ddcee60ae68fc4dbd4a52efb5f1b0baad71        analyzed               
+docker.io/ubuntu:latest        sha256:028d7303257c7f36c721b40099bf5004a41f666a54c0896d5f229f1c0fd99993        analyzed               
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image vuln alpine
+os: available
+non-os: available
+all: available
+
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image vuln alpine all
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image vuln ubuntu all
+Vulnerability ID        Package                              Severity          Fix         CVE Refs        Vulnerability URL                                                     Type        Feed Group          Package Path        
+CVE-2013-4235           login-1:4.8.1-1ubuntu5.20.04         Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4235           dpkg        ubuntu:20.04        pkgdb               
+CVE-2013-4235           passwd-1:4.8.1-1ubuntu5.20.04        Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4235           dpkg        ubuntu:20.04        pkgdb               
+CVE-2016-2781           coreutils-8.30-3ubuntu2              Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-2781           dpkg        ubuntu:20.04        pkgdb               
+CVE-2018-7169           login-1:4.8.1-1ubuntu5.20.04         Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-7169           dpkg        ubuntu:20.04        pkgdb               
+CVE-2018-7169           passwd-1:4.8.1-1ubuntu5.20.04        Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-7169           dpkg        ubuntu:20.04        pkgdb               
+CVE-2019-12904          libgcrypt20-1.8.5-5ubuntu1           Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-12904          dpkg        ubuntu:20.04        pkgdb               
+CVE-2019-13050          gpgv-2.2.19-3ubuntu2                 Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-13050          dpkg        ubuntu:20.04        pkgdb               
+CVE-2019-18276          bash-5.0-6ubuntu1.1                  Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-18276          dpkg        ubuntu:20.04        pkgdb               
+CVE-2019-20838          libpcre3-2:8.39-12build1             Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-20838          dpkg        ubuntu:20.04        pkgdb               
+CVE-2019-9923           tar-1.30+dfsg-7                      Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-9923           dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-10543          perl-base-5.30.0-9build1             Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-10543          dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-10878          perl-base-5.30.0-9build1             Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-10878          dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-12723          perl-base-5.30.0-9build1             Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-12723          dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-13776          libsystemd0-245.4-4ubuntu3.2         Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-13776          dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-13776          libudev1-245.4-4ubuntu3.2            Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-13776          dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-6096           libc-bin-2.31-0ubuntu9               Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-6096           dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-6096           libc6-2.31-0ubuntu9                  Low               None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-6096           dpkg        ubuntu:20.04        pkgdb               
+CVE-2018-20839          libsystemd0-245.4-4ubuntu3.2         Medium            None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-20839          dpkg        ubuntu:20.04        pkgdb               
+CVE-2018-20839          libudev1-245.4-4ubuntu3.2            Medium            None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-20839          dpkg        ubuntu:20.04        pkgdb               
+CVE-2016-10228          libc-bin-2.31-0ubuntu9               Negligible        None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-10228          dpkg        ubuntu:20.04        pkgdb               
+CVE-2016-10228          libc6-2.31-0ubuntu9                  Negligible        None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-10228          dpkg        ubuntu:20.04        pkgdb               
+CVE-2017-11164          libpcre3-2:8.39-12build1             Negligible        None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2017-11164          dpkg        ubuntu:20.04        pkgdb               
+CVE-2017-8283           dpkg-1.19.7ubuntu3                   Negligible        None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2017-8283           dpkg        ubuntu:20.04        pkgdb               
+CVE-2018-1000654        libtasn1-6-4.16.0-2                  Negligible        None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-1000654        dpkg        ubuntu:20.04        pkgdb               
+CVE-2020-14155          libpcre3-2:8.39-12build1             Negligible        None                        http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-14155          dpkg        ubuntu:20.04        pkgdb               
+MattH-OMNI:aevolume matthewhowe$ anchore-cli image vuln centos all
+Vulnerability ID        Package                                    Severity        Fix                     CVE Refs        Vulnerability URL                                            Type        Feed Group        Package Path        
+CVE-2020-14352          librepo-1.11.0-2.el8                       High            0:1.11.0-3.el8_2                        https://access.redhat.com/security/cve/CVE-2020-14352        rpm         rhel:8            pkgdb               
+CVE-2019-12900          bzip2-libs-1.0.6-26.el8                    Low             None                                    https://access.redhat.com/security/cve/CVE-2019-12900        rpm         rhel:8            pkgdb               
+CVE-2019-13012          glib2-2.56.4-8.el8                         Low             None                                    https://access.redhat.com/security/cve/CVE-2019-13012        rpm         rhel:8            pkgdb               
+CVE-2019-15165          libpcap-1.9.0-3.el8                        Low             None                                    https://access.redhat.com/security/cve/CVE-2019-15165        rpm         rhel:8            pkgdb               
+CVE-2019-1551           openssl-libs-1.1.1c-15.el8                 Low             None                                    https://access.redhat.com/security/cve/CVE-2019-1551         rpm         rhel:8            pkgdb               
+CVE-2019-15903          expat-2.2.5-3.el8                          Low             None                                    https://access.redhat.com/security/cve/CVE-2019-15903        rpm         rhel:8            pkgdb               
+CVE-2019-17450          binutils-2.30-73.el8                       Low             None                                    https://access.redhat.com/security/cve/CVE-2019-17450        rpm         rhel:8            pkgdb               
+CVE-2019-18276          bash-4.4.19-10.el8                         Low             None                                    https://access.redhat.com/security/cve/CVE-2019-18276        rpm         rhel:8            pkgdb               
+CVE-2019-20386          systemd-239-31.el8_2.2                     Low             None                                    https://access.redhat.com/security/cve/CVE-2019-20386        rpm         rhel:8            pkgdb               
+CVE-2019-20386          systemd-libs-239-31.el8_2.2                Low             None                                    https://access.redhat.com/security/cve/CVE-2019-20386        rpm         rhel:8            pkgdb               
+CVE-2019-20386          systemd-pam-239-31.el8_2.2                 Low             None                                    https://access.redhat.com/security/cve/CVE-2019-20386        rpm         rhel:8            pkgdb               
+CVE-2019-20386          systemd-udev-239-31.el8_2.2                Low             None                                    https://access.redhat.com/security/cve/CVE-2019-20386        rpm         rhel:8            pkgdb               
+CVE-2019-20838          pcre-8.42-4.el8                            Low             None                                    https://access.redhat.com/security/cve/CVE-2019-20838        rpm         rhel:8            pkgdb               
+CVE-2019-2708           libdb-5.3.28-37.el8                        Low             None                                    https://access.redhat.com/security/cve/CVE-2019-2708         rpm         rhel:8            pkgdb               
+CVE-2019-2708           libdb-utils-5.3.28-37.el8                  Low             None                                    https://access.redhat.com/security/cve/CVE-2019-2708         rpm         rhel:8            pkgdb               
+CVE-2020-14155          pcre-8.42-4.el8                            Low             None                                    https://access.redhat.com/security/cve/CVE-2020-14155        rpm         rhel:8            pkgdb               
+CVE-2020-24370          lua-libs-5.3.4-11.el8                      Low             None                                    https://access.redhat.com/security/cve/CVE-2020-24370        rpm         rhel:8            pkgdb               
+CVE-2020-8231           curl-7.61.1-12.el8                         Low             None                                    https://access.redhat.com/security/cve/CVE-2020-8231         rpm         rhel:8            pkgdb               
+CVE-2020-8231           libcurl-minimal-7.61.1-12.el8              Low             None                                    https://access.redhat.com/security/cve/CVE-2020-8231         rpm         rhel:8            pkgdb               
+CVE-2019-13627          libgcrypt-1.8.3-4.el8                      Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-13627        rpm         rhel:8            pkgdb               
+CVE-2019-16935          platform-python-3.6.8-23.el8               Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-16935        rpm         rhel:8            pkgdb               
+CVE-2019-16935          python3-libs-3.6.8-23.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-16935        rpm         rhel:8            pkgdb               
+CVE-2019-19221          libarchive-3.3.2-8.el8_1                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-19221        rpm         rhel:8            pkgdb               
+CVE-2019-19906          cyrus-sasl-lib-2.1.27-1.el8                Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-19906        rpm         rhel:8            pkgdb               
+CVE-2019-19956          libxml2-2.9.7-7.el8                        Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-19956        rpm         rhel:8            pkgdb               
+CVE-2019-20218          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20218        rpm         rhel:8            pkgdb               
+CVE-2019-20387          libsolv-0.7.7-1.el8                        Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20387        rpm         rhel:8            pkgdb               
+CVE-2019-20388          libxml2-2.9.7-7.el8                        Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20388        rpm         rhel:8            pkgdb               
+CVE-2019-20807          vim-minimal-8.0.1763-13.el8                Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20807        rpm         rhel:8            pkgdb               
+CVE-2019-20907          platform-python-3.6.8-23.el8               Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20907        rpm         rhel:8            pkgdb               
+CVE-2019-20907          python3-libs-3.6.8-23.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20907        rpm         rhel:8            pkgdb               
+CVE-2019-20916          python3-pip-wheel-9.0.3-16.el8             Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-20916        rpm         rhel:8            pkgdb               
+CVE-2019-3842           systemd-239-31.el8_2.2                     Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-3842         rpm         rhel:8            pkgdb               
+CVE-2019-3842           systemd-libs-239-31.el8_2.2                Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-3842         rpm         rhel:8            pkgdb               
+CVE-2019-3842           systemd-pam-239-31.el8_2.2                 Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-3842         rpm         rhel:8            pkgdb               
+CVE-2019-3842           systemd-udev-239-31.el8_2.2                Medium          None                                    https://access.redhat.com/security/cve/CVE-2019-3842         rpm         rhel:8            pkgdb               
+CVE-2020-10029          glibc-2.28-101.el8                         Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-10029        rpm         rhel:8            pkgdb               
+CVE-2020-10029          glibc-common-2.28-101.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-10029        rpm         rhel:8            pkgdb               
+CVE-2020-10029          glibc-minimal-langpack-2.28-101.el8        Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-10029        rpm         rhel:8            pkgdb               
+CVE-2020-13434          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13434        rpm         rhel:8            pkgdb               
+CVE-2020-13435          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13435        rpm         rhel:8            pkgdb               
+CVE-2020-13630          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13630        rpm         rhel:8            pkgdb               
+CVE-2020-13631          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13631        rpm         rhel:8            pkgdb               
+CVE-2020-13632          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13632        rpm         rhel:8            pkgdb               
+CVE-2020-13776          systemd-239-31.el8_2.2                     Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13776        rpm         rhel:8            pkgdb               
+CVE-2020-13776          systemd-libs-239-31.el8_2.2                Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13776        rpm         rhel:8            pkgdb               
+CVE-2020-13776          systemd-pam-239-31.el8_2.2                 Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13776        rpm         rhel:8            pkgdb               
+CVE-2020-13776          systemd-udev-239-31.el8_2.2                Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-13776        rpm         rhel:8            pkgdb               
+CVE-2020-14382          cryptsetup-libs-2.2.2-1.el8                Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-14382        rpm         rhel:8            pkgdb               
+CVE-2020-14422          platform-python-3.6.8-23.el8               Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-14422        rpm         rhel:8            pkgdb               
+CVE-2020-14422          python3-libs-3.6.8-23.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-14422        rpm         rhel:8            pkgdb               
+CVE-2020-15358          sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-15358        rpm         rhel:8            pkgdb               
+CVE-2020-15945          lua-libs-5.3.4-11.el8                      Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-15945        rpm         rhel:8            pkgdb               
+CVE-2020-1751           glibc-2.28-101.el8                         Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-1751         rpm         rhel:8            pkgdb               
+CVE-2020-1751           glibc-common-2.28-101.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-1751         rpm         rhel:8            pkgdb               
+CVE-2020-1751           glibc-minimal-langpack-2.28-101.el8        Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-1751         rpm         rhel:8            pkgdb               
+CVE-2020-1752           glibc-2.28-101.el8                         Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-1752         rpm         rhel:8            pkgdb               
+CVE-2020-1752           glibc-common-2.28-101.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-1752         rpm         rhel:8            pkgdb               
+CVE-2020-1752           glibc-minimal-langpack-2.28-101.el8        Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-1752         rpm         rhel:8            pkgdb               
+CVE-2020-24659          gnutls-3.6.8-11.el8_2                      Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-24659        rpm         rhel:8            pkgdb               
+CVE-2020-24977          libxml2-2.9.7-7.el8                        Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-24977        rpm         rhel:8            pkgdb               
+CVE-2020-6405           sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-6405         rpm         rhel:8            pkgdb               
+CVE-2020-7595           libxml2-2.9.7-7.el8                        Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-7595         rpm         rhel:8            pkgdb               
+CVE-2020-8177           curl-7.61.1-12.el8                         Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8177         rpm         rhel:8            pkgdb               
+CVE-2020-8177           libcurl-minimal-7.61.1-12.el8              Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8177         rpm         rhel:8            pkgdb               
+CVE-2020-8492           platform-python-3.6.8-23.el8               Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8492         rpm         rhel:8            pkgdb               
+CVE-2020-8492           python3-libs-3.6.8-23.el8                  Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8492         rpm         rhel:8            pkgdb               
+CVE-2020-8619           bind-export-libs-9.11.13-5.el8_2           Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8619         rpm         rhel:8            pkgdb               
+CVE-2020-8622           bind-export-libs-9.11.13-5.el8_2           Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8622         rpm         rhel:8            pkgdb               
+CVE-2020-8623           bind-export-libs-9.11.13-5.el8_2           Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8623         rpm         rhel:8            pkgdb               
+CVE-2020-8624           bind-export-libs-9.11.13-5.el8_2           Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-8624         rpm         rhel:8            pkgdb               
+CVE-2020-9327           sqlite-libs-3.26.0-6.el8                   Medium          None                                    https://access.redhat.com/security/cve/CVE-2020-9327         rpm         rhel:8            pkgdb               
+MattH-OMNI:aevolume matthewhowe$ anchore-cli evaluate check alpine:latest
+Image Digest: sha256:a15790640a6690aa1730c38cf0a440e2aa44aaca9b0e8931a9f2b0d7cc90fd65
+Full Tag: docker.io/alpine:latest
+Status: pass
+Last Eval: 2020-09-21T14:47:01Z
+Policy ID: 2c53a13c-1765-11e8-82ef-23527761d060
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli evaluate check ubuntu:latest
+Image Digest: sha256:028d7303257c7f36c721b40099bf5004a41f666a54c0896d5f229f1c0fd99993
+Full Tag: docker.io/ubuntu:latest
+Status: pass
+Last Eval: 2020-09-21T14:47:08Z
+Policy ID: 2c53a13c-1765-11e8-82ef-23527761d060
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli evaluate check centos:latest
+Image Digest: sha256:fc4a234b91cc4b542bac8a6ad23b2ddcee60ae68fc4dbd4a52efb5f1b0baad71
+Full Tag: docker.io/centos:latest
+Status: fail
+Last Eval: 2020-09-21T14:47:17Z
+Policy ID: 2c53a13c-1765-11e8-82ef-23527761d060
+
+MattH-OMNI:aevolume matthewhowe$ anchore-cli evaluate check centos:latest --detail
+Image Digest: sha256:fc4a234b91cc4b542bac8a6ad23b2ddcee60ae68fc4dbd4a52efb5f1b0baad71
+Full Tag: docker.io/centos:latest
+Image ID: 0d120b6ccaa8c5e149176798b3501d4dd1885f961922497cd0abef155c869566
+Status: fail
+Last Eval: 2020-09-21T14:48:17Z
+Policy ID: 2c53a13c-1765-11e8-82ef-23527761d060
+Final Action: stop
+Final Action Reason: policy_evaluation
+
+Gate                   Trigger            Detail                                                                                                                                                       Status        
+dockerfile             instruction        Dockerfile directive 'HEALTHCHECK' not found, matching condition 'not_exists' check                                                                          warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - bind-export-libs (CVE-2020-8619 - https://access.redhat.com/security/cve/CVE-2020-8619)                warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - bind-export-libs (CVE-2020-8623 - https://access.redhat.com/security/cve/CVE-2020-8623)                warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - bind-export-libs (CVE-2020-8622 - https://access.redhat.com/security/cve/CVE-2020-8622)                warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - bind-export-libs (CVE-2020-8624 - https://access.redhat.com/security/cve/CVE-2020-8624)                warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - cryptsetup-libs (CVE-2020-14382 - https://access.redhat.com/security/cve/CVE-2020-14382)               warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2020-8177 - https://access.redhat.com/security/cve/CVE-2020-8177)                            warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - cyrus-sasl-lib (CVE-2019-19906 - https://access.redhat.com/security/cve/CVE-2019-19906)                warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2020-1752 - https://access.redhat.com/security/cve/CVE-2020-1752)                           warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2020-1751 - https://access.redhat.com/security/cve/CVE-2020-1751)                           warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2020-10029 - https://access.redhat.com/security/cve/CVE-2020-10029)                         warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2020-1752 - https://access.redhat.com/security/cve/CVE-2020-1752)                    warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2020-1751 - https://access.redhat.com/security/cve/CVE-2020-1751)                    warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2020-10029 - https://access.redhat.com/security/cve/CVE-2020-10029)                  warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2020-1752 - https://access.redhat.com/security/cve/CVE-2020-1752)          warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2020-1751 - https://access.redhat.com/security/cve/CVE-2020-1751)          warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2020-10029 - https://access.redhat.com/security/cve/CVE-2020-10029)        warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - gnutls (CVE-2020-24659 - https://access.redhat.com/security/cve/CVE-2020-24659)                        warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libarchive (CVE-2019-19221 - https://access.redhat.com/security/cve/CVE-2019-19221)                    warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libcurl-minimal (CVE-2020-8177 - https://access.redhat.com/security/cve/CVE-2020-8177)                 warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libgcrypt (CVE-2019-13627 - https://access.redhat.com/security/cve/CVE-2019-13627)                     warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libsolv (CVE-2019-20387 - https://access.redhat.com/security/cve/CVE-2019-20387)                       warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2020-7595 - https://access.redhat.com/security/cve/CVE-2020-7595)                         warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2019-20388 - https://access.redhat.com/security/cve/CVE-2019-20388)                       warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2019-19956 - https://access.redhat.com/security/cve/CVE-2019-19956)                       warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2020-24977 - https://access.redhat.com/security/cve/CVE-2020-24977)                       warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - lua-libs (CVE-2020-15945 - https://access.redhat.com/security/cve/CVE-2020-15945)                      warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2019-16935 - https://access.redhat.com/security/cve/CVE-2019-16935)               warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2020-14422 - https://access.redhat.com/security/cve/CVE-2020-14422)               warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2020-8492 - https://access.redhat.com/security/cve/CVE-2020-8492)                 warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2019-20907 - https://access.redhat.com/security/cve/CVE-2019-20907)               warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2019-16935 - https://access.redhat.com/security/cve/CVE-2019-16935)                  warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2020-14422 - https://access.redhat.com/security/cve/CVE-2020-14422)                  warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2020-8492 - https://access.redhat.com/security/cve/CVE-2020-8492)                    warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2019-20907 - https://access.redhat.com/security/cve/CVE-2019-20907)                  warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - python3-pip-wheel (CVE-2019-20916 - https://access.redhat.com/security/cve/CVE-2019-20916)             warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-6405 - https://access.redhat.com/security/cve/CVE-2020-6405)                     warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-20218 - https://access.redhat.com/security/cve/CVE-2019-20218)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-9327 - https://access.redhat.com/security/cve/CVE-2020-9327)                     warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-15358 - https://access.redhat.com/security/cve/CVE-2020-15358)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13630 - https://access.redhat.com/security/cve/CVE-2020-13630)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13434 - https://access.redhat.com/security/cve/CVE-2020-13434)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13435 - https://access.redhat.com/security/cve/CVE-2020-13435)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13632 - https://access.redhat.com/security/cve/CVE-2020-13632)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13631 - https://access.redhat.com/security/cve/CVE-2020-13631)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)                         warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)                       warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd-libs (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)                    warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd-libs (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)                  warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd-pam (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)                     warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd-pam (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)                   warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd-udev (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)                    warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - systemd-udev (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)                  warn          
+vulnerabilities        package            MEDIUM Vulnerability found in os package type (rpm) - vim-minimal (CVE-2019-20807 - https://access.redhat.com/security/cve/CVE-2019-20807)                   warn          
+vulnerabilities        package            HIGH Vulnerability found in os package type (rpm) - librepo (CVE-2020-14352 - https://access.redhat.com/security/cve/CVE-2020-14352)                         stop          
