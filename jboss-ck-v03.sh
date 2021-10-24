@@ -13,7 +13,7 @@ for vm in v1 v2 v3 ; do
 
     for i in $app ; do
         # v-62073,62223,62229,62279,62283,62285,62297,62303,62305
-        output=`ssh $vm "sudo grep -r "management-interface" /opt/jboss-instances/$i/configuration/dcgs.xml -B 1| grep -i 'not present'"` 
+        output=`ssh $vm "sudo grep -r "management-interface" /opt/jboss-instances/$i/configuration/$proj.xml -B 1| grep -i 'not present'"` 
 	    if [[ ! -z $output ]] ; then
 	        status="Closed"
 	    else
@@ -24,7 +24,7 @@ for vm in v1 v2 v3 ; do
 	    echo ${results[*]} $output >> /tmp/jboss-raw.txt
 	
         # v-62215,62321,62323
-	    output=`ssh $vm "sudo sed -n '/<connector/,/<\/connector/p' /opt/jboss-instances/$i/configuration/dcgs.xml | grep 'TLSv1[^.1||2]'"`
+	    output=`ssh $vm "sudo sed -n '/<connector/,/<\/connector/p' /opt/jboss-instances/$i/configuration/$proj.xml | grep 'TLSv1[^.1||2]'"`
         if [[ ! -z $output ]] ; then
             status="Closed"
         else
@@ -46,7 +46,7 @@ for vm in v1 v2 v3 ; do
         echo ${results[*]} "$output" >> /tmp/jboss-raw.txt
 
         # v-62221
-    	output=`ssh $vm "sudo cat /opt/jboss-instances/$i/configuration/dcgs.xml | grep -i security-realm"`
+    	output=`ssh $vm "sudo cat /opt/jboss-instances/$i/configuration/$proj.xml | grep -i security-realm"`
         if [[ ! -z $output ]] ; then
             status="Closed"
         else
@@ -57,7 +57,7 @@ for vm in v1 v2 v3 ; do
         echo ${results[*]} "$output" >> /tmp/jboss-raw.txt
 
         # v-62313,62315,62329,62331,62333,62335,62337,62339,62341
-    	output=`ssh $vm "sudo sed -n '/<audit-log/,/<\/audit-log/p' /opt/jboss-instances/$i/configuration/dcgs.xml"`
+    	output=`ssh $vm "sudo sed -n '/<audit-log/,/<\/audit-log/p' /opt/jboss-instances/$i/configuration/$proj.xml"`
         if [[ ! -z $output ]] ; then
             status="Closed"
         else
@@ -123,7 +123,7 @@ for vm in v1 v2 v3 ; do
         echo ${results[*]} "$output" >> /tmp/jboss-raw.txt
 
         # v-62271
-        output=`ssh $vm "sudo grep -i welcome-root /opt/jboss-instances/$i/configuration/dcgs.xml | grep -i false"`
+        output=`ssh $vm "sudo grep -i welcome-root /opt/jboss-instances/$i/configuration/$proj.xml | grep -i false"`
         if [[ ! -z $output ]] ; then
             status="Closed"
         else
@@ -134,7 +134,7 @@ for vm in v1 v2 v3 ; do
         echo ${results[*]} "$output" >> /tmp/jboss-raw.txt
 
         # v-62287,62289
-        output=`ssh $vm "sudo grep -i vault  /opt/jboss-instances/$i/configuration/dcgs.xml"`
+        output=`ssh $vm "sudo grep -i vault  /opt/jboss-instances/$i/configuration/$proj.xml"`
         if [[ ! -z $output ]] ; then
             status="Closed"
         else
@@ -157,7 +157,7 @@ for vm in v1 v2 v3 ; do
         else
             status="Open"
         fi
-	    results=("$vm" "$i" "v-62311 - open if true, RA on POA&M" "$status")
+	    results=("$vm" "$i" "v-62311" "$status")
         echo ${results[*]} >> /tmp/jboss-clean.txt
         echo ${results[*]} $output >> /tmp/jboss-raw.txt
     done
